@@ -19,8 +19,8 @@ select * from Distribuidor;
 select sum(Devoluciones) as 'Total de devoluciones' from Principal;
 
 -- Devoluciones de mayor a menor con el nombre del producto,marca, cliente y distrobuidor
-select Descripci髇, Marca, OrdenID, ClienteKey,Distribuidorkey,Devoluciones from Principal
-inner join Producto on Principal.C骴igokey = Producto.C骴igokey
+select Descripci贸n, Marca, OrdenID, ClienteKey,Distribuidorkey,Devoluciones from Principal
+inner join Producto on Principal.C贸digokey = Producto.C贸digokey
 where Devoluciones >=1 order by Devoluciones desc;
 
 -- La mayor devolucion 
@@ -43,7 +43,7 @@ select max(Costo) as 'Mayor costo' from Producto;
 select min(Costo) as 'Menos costo' from Producto;
 
 -- Productos con el costo, precio, categoria agrupados por marca
-select Descripci髇,Costo,Precio,Categor韆, Marca from Producto order by Marca;
+select Descripci贸n,Costo,Precio,Categor铆a, Marca from Producto order by Marca;
 
 -- Clientes con su forma de pago
 select * from Clientes order by TipoPago;
@@ -55,24 +55,24 @@ select * from Principal order by Devoluciones;
 select * from Principal order by CantidadVendida;
 
 -- Las 5 marcas con mayor costo
-select top 5 Marca as 'Marcas de mayor costo', Categor韆, Costo from Producto
+select top 5 Marca as 'Marcas de mayor costo', Categor铆a, Costo from Producto
 order by Costo desc;
 
 -- Las 5 marcas con menor costo
-select top 5 Marca as 'Marcas de menor costo', Categor韆, Costo from Producto
+select top 5 Marca as 'Marcas de menor costo', Categor铆a, Costo from Producto
 order by Costo asc;
 
 -- Los 20 productos con el mayor precio
-select top 20 Descripci髇,Costo,Precio, Marca,Categor韆 from Producto order by Precio desc;
+select top 20 Descripci贸n,Costo,Precio, Marca,Categor铆a from Producto order by Precio desc;
 
 -- Los 20 productos con mayor costo
-select top 20 Descripci髇,Costo,Precio, Marca,Categor韆 from Producto order by Costo desc;
+select top 20 Descripci贸n,Costo,Precio, Marca,Categor铆a from Producto order by Costo desc;
 
  -- Los 20 productos con menor precio
-select top 20 Descripci髇,Costo,Precio, Marca,Categor韆 from Producto order by Precio asc;
+select top 20 Descripci贸n,Costo,Precio, Marca,Categor铆a from Producto order by Precio asc;
 
 -- Los 20 productos con menor costo
-select top 20 Descripci髇,Costo,Precio, Marca,Categor韆 from Producto order by Costo asc;
+select top 20 Descripci贸n,Costo,Precio, Marca,Categor铆a from Producto order by Costo asc;
 
 -- El total de devoluciones del distribuidor 1
 select sum(Devoluciones) as "Devoluciones del distribuidor 1" from Principal where Distribuidorkey = 1; 
@@ -102,17 +102,17 @@ select sum (CantidadVendida) as "Total de ventas distribuidor 4" from Principal 
 select sum(CantidadVendida) as 'Total productos vendidos' from Principal;
 
 -- Utilidad neta en cada uno de los productos
-select C骴igokey, Descripci髇, Marca,Categor韆,Precio-(Costo) as 'Utilidad neta por producto' from Producto;
+select C贸digokey, Descripci贸n, Marca,Categor铆a,Precio-(Costo) as 'Utilidad neta por producto' from Producto;
 
 -- Devoluciones de la mayor a la menor con su producto, marca, costo y precio
-select Producto.Descripci髇,Producto.Marca,Producto.Costo,Producto.Precio,Principal.Devoluciones
+select Producto.Descripci贸n,Producto.Marca,Producto.Costo,Producto.Precio,Principal.Devoluciones
 from Producto
-inner join Principal on Producto.C骴igokey = Principal.C骴igokey
+inner join Principal on Producto.C贸digokey = Principal.C贸digokey
 where Devoluciones >= 1
 order by Devoluciones desc;
 
 -- Las 25 devoluciones mas grandes con su producto, marca y costo
-select top 25 Descripci髇,Marca, Costo, Devoluciones from Producto inner join Principal on Producto.C骴igokey = Principal.C骴igokey
+select top 25 Descripci贸n,Marca, Costo, Devoluciones from Producto inner join Principal on Producto.C贸digokey = Principal.C贸digokey
 order by Devoluciones desc;
 
 -- Las 4 ferreterias con mejores ventas con su pais y ciudad
@@ -130,33 +130,33 @@ select * from Principal;
 select * from Producto;
 
 -- Los productos segun su venta del mas vendido al menos vendido
-Select Descripci髇 as'Productos segun sus ventas, mayor a menor',Marca, CantidadVendida as "Cantidad vendida" from Producto inner join Principal
-on Principal.C骴igokey = Producto.C骴igokey
+Select Descripci贸n as'Productos segun sus ventas, mayor a menor',Marca, CantidadVendida as "Cantidad vendida" from Producto inner join Principal
+on Principal.C贸digokey = Producto.C贸digokey
 order by CantidadVendida desc; 
 
 -- Los productos agrupados segun su venta del menor al mayor
-Select Descripci髇 as 'Productos segun sus ventas, menor a mayor', Marca,CantidadVendida as "Cantidad vendida" from Producto inner join Principal
-on Principal.C骴igokey = Producto.C骴igokey 
+Select Descripci贸n as 'Productos segun sus ventas, menor a mayor', Marca,CantidadVendida as "Cantidad vendida" from Producto inner join Principal
+on Principal.C贸digokey = Producto.C贸digokey 
 order by CantidadVendida asc;
 
 -- Las marcas segun sus ventas de forma descendente 
-select Marca as 'Marcas mas vendidas', Descripci髇, CantidadVendida as "Cantidad vendida" from Producto inner join Principal
-on Principal.C骴igokey = Producto.C骴igokey
+select Marca as 'Marcas mas vendidas', Descripci贸n, CantidadVendida as "Cantidad vendida" from Producto inner join Principal
+on Principal.C贸digokey = Producto.C贸digokey
 order by CantidadVendida desc;
 
 -- Las marcas con sus productos agrupados segun sus ventas de forma asendente
-Select Marca as'Marcas menos vendidas',Descripci髇, CantidadVendida as "Cantidad vendida" from Producto inner join Principal
-on Principal.C骴igokey = Producto.C骴igokey
+Select Marca as'Marcas menos vendidas',Descripci贸n, CantidadVendida as "Cantidad vendida" from Producto inner join Principal
+on Principal.C贸digokey = Producto.C贸digokey
 order by CantidadVendida asc;
 
 -- Las 5 marcas mejor vendidas
-select top 5 Marca as '5 marcas mas vendidas', Descripci髇,CantidadVendida as "Cantidad vendida" from Producto
-inner join Principal on Producto.C骴igokey = Principal.C骴igokey
+select top 5 Marca as '5 marcas mas vendidas', Descripci贸n,CantidadVendida as "Cantidad vendida" from Producto
+inner join Principal on Producto.C贸digokey = Principal.C贸digokey
 order by CantidadVendida desc;
 
 -- Las 5 marcas menos vendidas
-select top 5 Marca as '5 marcas menos vendidas', Descripci髇,CantidadVendida as "Cantidad vendida" from Producto
-inner join Principal on Producto.C骴igokey = Principal.C骴igokey
+select top 5 Marca as '5 marcas menos vendidas', Descripci贸n,CantidadVendida as "Cantidad vendida" from Producto
+inner join Principal on Producto.C贸digokey = Principal.C贸digokey
 order by CantidadVendida asc;
 
 -- Los clientes agrupados segun sus ventas de forma descendente
